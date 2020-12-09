@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcService";
+
+service TurnByTurn {
+	rpc StartGuidance(GuidanceRequest) returns (stream Step);
+}
+
+message GuidanceRequest {
+	string address = 1;
+}
+
+message Step {
+	string road = 1;
+	string direction = 2;
+}
